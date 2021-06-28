@@ -11,7 +11,7 @@ export class ShoppingCartService {
    
   constructor(private http: HttpClient, @Inject('BASE_API_URL') private baseUrl: string) { }
 
-  getCheckoutProducts(obj: import("../entities/shopping-cart").ShoppingCartRequest[]) {
+  getShoppingCartProducts(obj: import("../entities/shopping-cart").ShoppingCartRequest[]) {
     return this.http.post<ShoppingCartList[]>(this.baseUrl + 'shoppingcart', obj);
   }
 

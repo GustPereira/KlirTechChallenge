@@ -1,0 +1,42 @@
+<h1 id="tableLabel">Shopping Cart</h1>
+
+<p *ngIf="!shoppingCartProducts"><em>Loading...</em></p>
+
+<p *ngIf="shoppingCartProducts.length == 0"><em>No products</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="shoppingCartProducts.length > 0">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Total</th>
+      <th>Promotion</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of shoppingCartProducts">
+      <td>{{ product.id }}</td>
+      <td>{{ product.name }}</td>
+      <td>{{ product.quantity }}</td>
+      <td>{{ product.price|currency:'EUR':true }}</td>
+      <td>{{ product.totalPrice|currency:'EUR':true }}</td>
+      <td>{{ product.promotioName }}</td>
+      <td><button class="btn btn-primary" (click)="addProduct(product.id)">+</button></td>
+      <td><button class="btn btn-primary" (click)="subtractProduct(product.id)">-</button></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td>Total:</td>
+        <td>{{ totalPriceShoppingCart }}</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+  </tbody>
+</table>

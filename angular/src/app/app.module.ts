@@ -7,12 +7,14 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { ProductsComponent } from './products/products.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     ProductsComponent,
+    ShoppingCartComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -20,6 +22,7 @@ import { ProductsComponent } from './products/products.component';
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: ProductsComponent, pathMatch: 'full' },
+      { path: 'cart', component: ShoppingCartComponent, pathMatch: 'full' },
     ])
   ],
   providers: [],

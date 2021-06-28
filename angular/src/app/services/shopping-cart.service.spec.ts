@@ -27,7 +27,7 @@ describe('ShoppingCartService', () => {
       { id: 2, quantity: 1 },
     ]
 
-    service.getCheckoutProducts(obj).subscribe(res => {
+    service.getShoppingCartProducts(obj).subscribe(res => {
       let expectedPrice = res.map(a => a.totalPrice).reduce((a, b) => a + b);
       expect(expectedPrice).toBe(64)
       done();
