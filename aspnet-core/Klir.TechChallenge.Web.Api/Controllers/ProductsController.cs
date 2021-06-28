@@ -15,6 +15,7 @@ namespace Klir.TechChallenge.Web.Api.Controllers
     public class ProductsController : ControllerBase
     {
         private readonly List<Product> products = new ProductsDB().products;
+        private readonly List<Promotion> promotions = new PromotionsDB().promotions;
 
         // GET /products
         [HttpGet]
@@ -24,7 +25,7 @@ namespace Klir.TechChallenge.Web.Api.Controllers
 
             foreach (var item in products)
             {
-                result.Add(new ProductsDtos() { Id = item.Id, Name = item.Name, Price = item.Price });
+                result.Add(new ProductsDtos() { Id = item.Id, Name = item.Name, Price = item.Price, PromotioName = promotions.FirstOrDefault(t => t.Id == item.PromotionId)?.Name  });
             }
 
             return result;
